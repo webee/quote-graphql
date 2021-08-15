@@ -219,6 +219,9 @@ class GetCartForCustomer extends CartResolver
         array $args = null
     ) {
         $cart = $this->getCart($args);
+        if (!$cart->getIsActive()) {
+            throw new \UnexpectedValueException(__("cart is inactive"));
+        }
         $items = $cart->getItems();
         $itemsData = [];
 
