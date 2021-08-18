@@ -220,7 +220,7 @@ class GetCartForCustomer extends CartResolver
     ) {
         $cart = $this->getCart($args);
         if (!$cart->getIsActive()) {
-            throw new \UnexpectedValueException(__("cart is inactive"));
+            throw new \UnexpectedValueException("cart is inactive");
         }
         $items = $cart->getItems();
         $itemsData = [];
